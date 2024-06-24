@@ -3,14 +3,12 @@ section .text
 
 _ft_strlen:
     xor rax, rax
-    xor rcx, rcx
 
-repeat:
-    cmp byte [rdi + rcx], 0
+strlen_loop:
+    cmp byte [rdi + rax], 0
     je done
-    inc rcx
-    jmp repeat
+    inc rax
+    jmp strlen_loop
 
 done:
-    mov rax, rcx
     ret

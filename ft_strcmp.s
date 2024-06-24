@@ -2,23 +2,26 @@ section .text
     global _ft_strcmp
 
 _ft_strcmp:
+    push rbx
     xor rax, rax
-    xor rbx, rbx
+    xor rcx, rcx
 
-cmp_loop:
-    mov al, [rdi]
-    mov bl, [rsi]
+strcmp_loop:
+    mov al, [rdi + rcx]
+    mov bl, [rsi + rcx]
     cmp al, bl
-    jne done
-    cmp al, 0
+    jne not_equal
+    test al, al
     je done
-    cmp bl, 0
-    je done
-    inc rdi
-    inc rsi
-    jmp cmp_loop
+    inc rcx
+    jmp strcmp_loop
 
-done:
-    sub rax, rbx
+not_equal:
+    sub al, bl
+    movsx rax, al
+    pop rbx
     ret
 
+done:
+    pop rbx
+    ret
