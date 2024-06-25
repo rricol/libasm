@@ -11,7 +11,7 @@ extern ssize_t ft_write(int fd, const void *buf, size_t count);
 extern ssize_t ft_read(int fd, void *buf, size_t count);
 extern char *ft_strdup(const char *s1);
 
-int main(int argc, char const *argv[])
+int main()
 {
     // Test ft_strlen
     printf("ft_strlen: %zu\n", ft_strlen("Hello, World!"));
@@ -39,7 +39,7 @@ int main(int argc, char const *argv[])
     else
     {
         buffer[bytes_read] = '\0';
-        printf("ft_read: %s\n", buffer);
+        printf("ft_read: %s (bytes_read=%d)\n", buffer, bytes_read);
     }
 
     // Test ft_strdup

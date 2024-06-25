@@ -9,7 +9,7 @@ CC = gcc
 NASM = nasm
 
 # Compilation flags
-CFLAGS = -arch x86_64 # -Wall -Wextra -Werror
+CFLAGS = -arch x86_64 -Wall -Wextra -Werror
 NASMFLAGS = -f macho64
 
 # Source files
